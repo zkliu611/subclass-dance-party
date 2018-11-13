@@ -16,8 +16,8 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
-    
-    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+     
+     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     // console.log(dancerMakerFunctionName); // makeBlinkyDancer 'string'
     // console.log(window[dancerMakerFunctionName]);
     // get the maker function for the kind of dancer we're supposed to make
@@ -28,9 +28,9 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
-      Math.random() * 2500
+    $('body').height() * Math.random(),
+    $('body').width() * Math.random(),
+    Math.random() * 2500
     );
 
 
@@ -76,7 +76,7 @@ $(document).ready(function() {
     }
   });
 
- $('.danceOff').on('click', function() {
+  $('.danceOff').on('click', function() {
     var leftArr = window.dancers.slice(0, window.dancers.length / 2);
     var rightArr = window.dancers.slice(window.dancers.length / 2, window.dancers.length);
     for (var i = 0; i < rightArr.length; i++) {
@@ -86,17 +86,33 @@ $(document).ready(function() {
       leftArr[i].lineUpLeft(i);
     }
 
-    let rightSide = rightArr.shift();
-    let leftSide = leftArr.shift()
-    rightSide.danceOff(700,$('body').width() * 0.48, i);
-    leftSide.danceOff(700,$('body').width() * 0.42, i);
+    setInterval(function() {
+      let rightSide = rightArr.shift();
+      let leftSide = leftArr.shift();
+      rightSide.danceOff(700,$('body').width() * 0.48, i);
+      leftSide.danceOff(700,$('body').width() * 0.42, i);
+      rightArr.push(rightSide);
+      leftArr.push(leftSide);
+      setTimeout(function() {
+        for (var i = 0; i < rightArr.length; i++) {
+          rightArr[i].lineUpRight(i);
+        }
+        for (var i = 0; i < leftArr.length; i++) {
+          leftArr[i].lineUpLeft(i);
+        }
+      }, 5000);
+    }, 7000);
+
+    
+    // rightSide.danceOff(700,$('body').width() * 0.48, i);
+    // leftSide.danceOff(700,$('body').width() * 0.42, i);
 
     
     
     // add more method for dance off
 
   });
-    
+  
 
   
 });
