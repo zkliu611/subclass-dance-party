@@ -34,7 +34,7 @@ $(document).ready(function() {
     );
 
 
-    if (dancerMakerFunctionName === 'makeBlinkyDancer') {
+    if (dancerMakerFunctionName === 'makeFallingDancer') {
       window.subDancers.push(dancer);
     } else {
       window.dancers.push(dancer);
