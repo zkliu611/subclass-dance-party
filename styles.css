@@ -31,8 +31,18 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 
-.deadpool-1:hover {
+.deadpool-2:hover {
+  transform: scale(3);
+  transition: all 1s;
+}
+
+.deadpool-3:hover {
   transform: scale(1.2) rotate(360deg);
+  transition: all 1s;
+}
+
+.deadpool-4:hover {
+  transform: scale(1.5);
   transition: all 1s;
 }
 
@@ -41,19 +51,9 @@ body, a:link, a:visited, a:active{
   height: 160px;
 }
 
-.deadpool-2:hover {
-  transform: scale(3);
-  transition: all 1s;
-}
-
 .deadpool-2 {
   width: 124px;
   height: 220px;
-}
-
-.deadpool-3:hover {
-  transform: scale(1.5);
-  transition: all 1s;
 }
 
 .deadpool-3 {
